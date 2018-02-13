@@ -41,6 +41,7 @@
 #   [*fastcgi_param*]        - Set additional custom fastcgi_params
 #   [*fastcgi_params*]       - optional alternative fastcgi_params file to use
 #   [*fastcgi_script*]       - optional SCRIPT_FILE parameter
+#   [*chroot_base*]          - optional CHROOT dir for FastCGI document root prepending
 #   [*fastcgi_split_path*]   - Allows settings of fastcgi_split_path_info so
 #     that you can split the script_name and path_info via regex
 #   [*uwsgi*]              - location of uwsgi (host:port)
@@ -185,6 +186,7 @@ define nginx::resource::location (
   Optional[Hash] $fastcgi_param                        = undef,
   String $fastcgi_params                               = "${::nginx::conf_dir}/fastcgi.conf",
   Optional[String] $fastcgi_script                     = undef,
+  Optional[String] $chroot_base                        = undef,
   Optional[String] $fastcgi_split_path                 = undef,
   Optional[String] $uwsgi                              = undef,
   Optional[Hash] $uwsgi_param                          = undef,
